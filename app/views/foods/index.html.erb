@@ -1,9 +1,24 @@
-<h1>My Foods</h1>
+<h1>Food List</h1>
 
-<%= link_to "New Food", new_food_path %>
+<%= link_to 'Add Food', new_food_path, class: 'btn btn-primary' %>
 
-<% @foods.each do |food| %>
-  <p><%= food.name %> (<%= food.quantity %>)</p>
-<% end %>
-
-
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+        <td><%= button_to 'Delete', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

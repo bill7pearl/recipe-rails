@@ -16,9 +16,17 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+    redirect_to foods_path, notice: 'Food item was successfully deleted.'
+  end
+
   private
 
   def food_params
-    params.require(:food).permit(:name, :quantity)
+    params.require(:food).permit(:name, :measurement_unit, :price).tap do |p|
+      p[:price] = p[:price].to_d if p[:price].present?
+    end
   end
 end
