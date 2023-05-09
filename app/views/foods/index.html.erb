@@ -1,4 +1,9 @@
+<h1>My Foods</h1>
+
+<%= link_to "New Food", new_food_path %>
+
 <% @foods.each do |food| %>
   <p><%= food.name %> (<%= food.quantity %>)</p>
 <% end %>
+
 
