@@ -16,7 +16,7 @@ h2 {
 }
 
 .signPage,
-.newFood {
+.newFood, .newRecipe {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,8 +66,8 @@ input[type="submit"]:hover {
 
 .publicPage {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .publicPage h1 {

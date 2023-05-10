@@ -57,3 +57,15 @@
     .nav-item {
       list-style: none;
     }
+
+    .btn-logout {
+    text-decoration: none;
+      color: rgb(236, 236, 236);
+      background: #bd4040;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+    }

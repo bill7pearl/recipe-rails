@@ -20,21 +20,24 @@
           <li class="nav-item">
             <%= link_to "Recipe List", recipes_path, class: "nav-link" %>
           </li>
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Add Recipe", new_recipe_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
-            </li>
-          <% end %>
+         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Add Recipe", new_recipe_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= form_for(current_user, url: destroy_user_session_path, method: :delete, html: { class: "nav-link" }) do |f| %>
+              <%= f.submit "Logout", class: "btn-logout" %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
         </ul>
       </div>
     </div>
