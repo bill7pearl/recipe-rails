@@ -9,8 +9,9 @@
         <p>Steps go here...</p>
     </div>
     <div class="toggle">
-        <%= link_to "Toggle Public/Private", toggle_public_recipe_path(@recipe), method: :post, class: "toggle-btn" %>
-  </div>
+   <%= button_to "Toggle", toggle_public_recipe_path(@recipe), method: :post, class: "toggle-btn hide-text" %>
+</div>
+
   
   </div>
   <div class="recipe-info-itemBtn">

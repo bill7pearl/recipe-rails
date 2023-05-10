@@ -2,14 +2,13 @@
   <% @recipes.each do |recipe| %>
     <div class="recipe-card">
       <div class="recipe-card-body">
-        <h2 class="recipe-name"><%= recipe.name %></h2>
-        <p class="recipe-description"><%= recipe.description %></p>
-        <div class="recipe-actions">
-          <% if recipe.user == current_user %>
-            <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
-          <% end %>
-          <%= link_to 'Details', recipe_path(recipe), class: "toggle-btn" %>
-        </div>
+        <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+        <p class="recipe-description"><%= recipe.description %></p>   
+      </div>
+      <div class="recipe-actions">
+        <% if recipe.user == current_user %>
+          <%= link_to 'REMOVE', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
+        <% end %>
       </div>
     </div>
   <% end %>

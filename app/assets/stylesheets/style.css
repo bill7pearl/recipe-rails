@@ -65,13 +65,13 @@ input[type="submit"]:hover {
 }
 
 .publicPage {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .publicPage h1 {
-  font-size: 32px;
   margin: auto;
   padding: 5%;
 }
@@ -201,3 +201,94 @@ tr:nth-child(even) {
   color: #557e99;
   text-shadow: 0 0 10px #FFFFFF;
 }
+
+.recipe-list {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 5% 10% ;
+}
+
+
+.recipe-card {
+  width: 100%;
+  padding: 3%;
+  margin: 5% ;
+  border: 2px solid rgb(56, 54, 54);
+}
+
+.recipe-card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+}
+
+.recipe-card-body h3 a{
+  color: #3d362f;
+  padding-bottom: 2%;
+}
+
+.recipe-description {
+  font-weight: 500;
+}
+
+.delete-btn {
+  padding-top: 2%;
+  color: #5fa0e6;
+}
+
+/***************************************************/
+ .toggle-btn {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  background-color: #6d3405;
+  border-radius: 34px;
+  transition: background-color 0.3s ease-in-out;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.toggle-btn:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-btn:active:before {
+  transform: translateX(26px);
+}
+
+.toggle-btn.dark:before {
+  transform: translateX(26px);
+}
+
+.toggle-btn.dark {
+  background-color: #613b10;
+}
+
+.toggle-btn.light:before {
+  transform: translateX(0);
+}
+
+.toggle-btn.light {
+  background-color: #ddd;
+}
+
+.toggle-btn.hide-text {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  text-indent: -9999px;
+}
+

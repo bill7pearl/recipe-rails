@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @recipes = current_user.recipes
     @recipes = Recipe.where(public: true)
   end
 
@@ -28,13 +27,17 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path
+    redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
   end
 
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
     redirect_to @recipe
+  end
+
+  def my_recipes
+    @recipes = current_user.recipes
   end
 
   private
