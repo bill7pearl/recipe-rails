@@ -7,6 +7,5 @@ class PublicRecipesController < ApplicationController
   def show
     @recipe = Recipe.public_recipes.find(params[:id])
     @ingredients = @recipe&.recipe_foods
-
   end
 end
