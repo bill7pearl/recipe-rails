@@ -7,4 +7,8 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true
   validates :cooking_time, presence: true
+
+  def total_price
+    foods.map { |f| f.price.to_i * f.recipe_foods.find_by(recipe_id: id).quantity.to_i }.sum
+  end
 end
