@@ -1,22 +1,31 @@
+<section class="detail-container">
+
 <h1 class="recipe-name"><%= @recipe.name %></h1>
 <div class="recipe-info">
-  <div class="recipe-info-item">
-    <p>Preparation Time: <%= @recipe.preparation %> minutes</p>
-    <p>Cooking Time: <%= @recipe.cooking_time %> hours</p>
-    <%= link_to "Toggle Public/Private", toggle_public_recipe_path(@recipe), method: :post, class: "toggle-btn" %>
+  <div class="recipe-info-item1">
+    <div class="desc">
+        <p>Preparation Time: <%= @recipe.preparation %> minutes</p>
+        <p>Cooking Time: <%= @recipe.cooking_time %> hours</p>
+        <p>Steps go here...</p>
+    </div>
+    <div class="toggle">
+        <%= link_to "Toggle Public/Private", toggle_public_recipe_path(@recipe), method: :post, class: "toggle-btn" %>
   </div>
-  <div class="recipe-info-item">
-    <%= link_to "Add Ingredient", new_recipe_food_path(@recipe), class: "add-btn" %>
+  
+  </div>
+  <div class="recipe-info-itemBtn">
     <%= link_to "General Shopping List", shopping_list_recipe_path(@recipe), class: "shopping-list-btn" %>
-  </div>
+    <%= link_to "Add Ingredient", new_recipe_food_path(@recipe), class: "add-ingredient" %>
+  
 </div>
+
 <table class="recipe-table">
   <thead>
     <tr>
-      <th scope="col">Food</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Value</th>
-      <th scope="col">Actions</th>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -33,3 +42,4 @@
     <% end %>
   </tbody>
 </table>
+</section>

@@ -157,3 +157,47 @@ tr:nth-child(even) {
   border-color: #bd2130;
   text-decoration: none;
 }
+
+/************************************************************/
+.detail-container, .recipe-info{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  gap: 2rem;
+}
+
+.detail-container h1 {
+  margin: auto;
+}
+
+.desc p{
+  padding: 2% 0;
+}
+
+.recipe-info-item1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-info-item1 p {
+  font-weight: 500;
+}
+
+.recipe-info-itemBtn {
+  display: flex;
+  gap: 5rem;
+}
+
+.shopping-list-btn, .add-ingredient {
+  padding: 1%;
+  border: 3px solid rgb(46, 43, 43);
+  text-decoration: none;
+  font-weight: 500;
+  color: #223850;
+}
+
+.shopping-list-btn:hover, .add-ingredient:hover {
+  color: #557e99;
+  text-shadow: 0 0 10px #FFFFFF;
+}
