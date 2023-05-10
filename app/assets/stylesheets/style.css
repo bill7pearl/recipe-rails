@@ -16,7 +16,8 @@ h2 {
 }
 
 .signPage,
-.newFood, .newRecipe {
+.newFood,
+.newRecipe {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +93,6 @@ input[type="submit"]:hover {
   margin: 5% 0;
 }
 
-
 .buttons .btn {
   text-decoration: none;
   color: rgb(255, 255, 255);
@@ -158,8 +158,9 @@ tr:nth-child(even) {
   text-decoration: none;
 }
 
-/************************************************************/
-.detail-container, .recipe-info{
+/***********************************************************   */
+.detail-container,
+.recipe-info {
   width: 95%;
   display: flex;
   flex-direction: column;
@@ -171,7 +172,7 @@ tr:nth-child(even) {
   margin: auto;
 }
 
-.desc p{
+.desc p {
   padding: 2% 0;
 }
 
@@ -189,7 +190,8 @@ tr:nth-child(even) {
   gap: 5rem;
 }
 
-.shopping-list-btn, .add-ingredient {
+.shopping-list-btn,
+.add-ingredient {
   padding: 1%;
   border: 3px solid rgb(46, 43, 43);
   text-decoration: none;
@@ -197,9 +199,10 @@ tr:nth-child(even) {
   color: #223850;
 }
 
-.shopping-list-btn:hover, .add-ingredient:hover {
+.shopping-list-btn:hover,
+.add-ingredient:hover {
   color: #557e99;
-  text-shadow: 0 0 10px #FFFFFF;
+  text-shadow: 0 0 10px #fff;
 }
 
 .recipe-list {
@@ -208,14 +211,13 @@ tr:nth-child(even) {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin: 5% 10% ;
+  margin: 5% 10%;
 }
-
 
 .recipe-card {
   width: 100%;
   padding: 3%;
-  margin: 5% ;
+  margin: 5%;
   border: 2px solid rgb(56, 54, 54);
 }
 
@@ -226,7 +228,7 @@ tr:nth-child(even) {
   gap: 5rem;
 }
 
-.recipe-card-body h3 a{
+.recipe-card-body h3 a {
   color: #3d362f;
   padding-bottom: 2%;
 }
@@ -240,8 +242,8 @@ tr:nth-child(even) {
   color: #5fa0e6;
 }
 
-/***************************************************/
- .toggle-btn {
+/**************************************************   */
+.toggle-btn {
   position: relative;
   display: inline-block;
   width: 50px;
@@ -253,7 +255,7 @@ tr:nth-child(even) {
   vertical-align: middle;
 }
 
-.toggle-btn:before {
+.toggle-btn::before {
   content: '';
   position: absolute;
   top: 2px;
@@ -265,11 +267,11 @@ tr:nth-child(even) {
   transition: transform 0.3s ease-in-out;
 }
 
-.toggle-btn:active:before {
+.toggle-btn:active::before {
   transform: translateX(26px);
 }
 
-.toggle-btn.dark:before {
+.toggle-btn.dark::before {
   transform: translateX(26px);
 }
 
@@ -277,7 +279,7 @@ tr:nth-child(even) {
   background-color: #613b10;
 }
 
-.toggle-btn.light:before {
+.toggle-btn.light::before {
   transform: translateX(0);
 }
 
@@ -291,4 +293,3 @@ tr:nth-child(even) {
   color: transparent;
   text-indent: -9999px;
 }
-
