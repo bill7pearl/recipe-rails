@@ -81,18 +81,18 @@ input[type="submit"]:hover {
 }
 
 .btn {
-  display: inline-block;
   color: #f1f1f1;
   background-color: #7dc0f7;
   border-color: #dae0e7;
   border-radius: 5px;
+  font-weight: bold;
   padding: 10px;
   text-decoration: none;
   align-self: flex-end;
-  margin-bottom: 5%;
+  margin: 5% 0;
 }
 
-.btn,
+
 .buttons .btn {
   text-decoration: none;
   color: rgb(255, 255, 255);
@@ -118,7 +118,7 @@ input[type="submit"]:hover {
 }
 
 .foodList {
-  margin: 30px;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
@@ -127,7 +127,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   max-width: 800px;
-  margin: auto;
+  margin: 10% auto;
 }
 
 th,
