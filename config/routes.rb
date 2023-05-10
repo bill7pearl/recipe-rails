@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :recipes, only: %i[index show new create destroy] do
       member do
         post 'toggle_public'
+        get 'shopping_list'
       end
+      resources :foods, only: %i[new create], shallow: true
     end
     resources :inventories, only: %i[index show new create destroy] do
       resources :inventory_foods, only: %i[create update destroy]

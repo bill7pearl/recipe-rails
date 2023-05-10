@@ -1,0 +1,46 @@
+<section class="detail-container">
+
+<h1 class="recipe-name"><%= @recipe.name %></h1>
+<div class="recipe-info">
+  <div class="recipe-info-item1">
+    <div class="desc">
+        <p>Preparation Time: <%= @recipe.preparation %> minutes</p>
+        <p>Cooking Time: <%= @recipe.cooking_time %> hours</p>
+        <p>Steps go here...</p>
+    </div>
+    <div class="toggle">
+   <%= button_to "Toggle", toggle_public_recipe_path(@recipe), method: :post, class: "toggle-btn hide-text" %>
+</div>
+
+  
+  </div>
+  <div class="recipe-info-itemBtn">
+    <%= link_to "General Shopping List", shopping_list_recipe_path(@recipe), class: "shopping-list-btn" %>
+    <%= link_to "Add Ingredient", new_recipe_food_path(@recipe), class: "add-ingredient" %>
+  
+</div>
+
+<table class="recipe-table">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+        <td>
+          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "modify-btn" %>
+          <%= link_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>
