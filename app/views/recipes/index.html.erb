@@ -7,7 +7,7 @@
       </div>
       <div class="recipe-actions">
         <% if recipe.user == current_user %>
-          <%= link_to 'REMOVE', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
+          <%= button_to 'REMOVE', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
         <% end %>
       </div>
     </div>

@@ -25,6 +25,12 @@
             <%= link_to "Add Recipe", new_recipe_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "Inventory List", inventories_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'New Inventory', new_inventory_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= form_for(current_user, url: destroy_user_session_path, method: :delete, html: { class: "nav-link" }) do |f| %>
               <%= f.submit "Logout", class: "btn-logout" %>
             <% end %>
