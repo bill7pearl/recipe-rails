@@ -12,12 +12,12 @@ Rails.application.routes.draw do
       end
       resources :foods, only: %i[new create], shallow: true
     end
-    resources :inventories, only: %i[index show new create destroy] do
-      resources :inventory_foods, only: %i[create update destroy]
-    end
     resources :recipe_foods, only: %i[create update destroy]
     resources :public_recipes, only: %i[index show]
     resources :general_shopping_list, only: [:index ,:show]
+    resources :inventories, only: %i[index new create show destroy] do
+      resources :inventory_foods, only: [:new, :create, :destroy]
+    end
   end
 
   get '/recipes/shopping_list', to: 'recipes#shopping_list'
