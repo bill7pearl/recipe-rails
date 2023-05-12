@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @recipes = Recipe.where(public: true)
+    @recipes = Recipe.includes(:user).where(public: true)
   end
 
   def show
