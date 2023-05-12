@@ -3,7 +3,7 @@ class InventoriesController < ApplicationController
   before_action :authorize_user, only: [:destroy]
 
   def index
-    @inventories = current_user.inventories
+    @inventories = current_user.inventories.includes(:inventory_foods)
   end
 
   def show; end
@@ -30,7 +30,7 @@ class InventoriesController < ApplicationController
   private
 
   def set_inventory
-    @inventory = Inventory.find(params[:id])
+    @inventory = Inventory.includes(:inventory_foods).find(params[:id])
   end
 
   def authorize_user
