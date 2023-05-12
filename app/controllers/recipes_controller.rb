@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
     @foods = []
 
     recipe_foods = RecipeFood.where(recipe_id: params[:recipe_id])
-    inventory = Inventory.find(params[:inventory_id]) # Assuming inventory_id is passed in params
+    inventory = Inventory.find(params[:inventory_id])
 
     recipe_foods.each do |recipe_food|
       food = recipe_food.food
