@@ -3,7 +3,7 @@ class InventoryFoodsController < ApplicationController
 
   def new
     @inventory_food = @inventory.inventory_foods.build
-    @foods = Food.all 
+    @foods = Food.all
   end
 
   def create
