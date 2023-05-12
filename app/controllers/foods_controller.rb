@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = current_user.foods
+    @foods = current_user.foods.includes(:user)
   end
 
   def new
@@ -17,7 +17,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
     @food.destroy
     redirect_to foods_path, notice: 'Food item was successfully deleted.'
   end
