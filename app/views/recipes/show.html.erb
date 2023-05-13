@@ -37,7 +37,7 @@
       <td><%= recipe_food.food.value * recipe_food.quantity if recipe_food.food.value %></td>
 
       <td>
-        <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "modify-btn" %>
+        <%= link_to "Modify", recipe_recipe_food_path(@recipe, recipe_food), class: "modify-btn" %>
         <%= link_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
       </td>
     </tr>
