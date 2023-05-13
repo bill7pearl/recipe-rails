@@ -11,8 +11,9 @@ Rails.application.routes.draw do
         get 'shopping_list'
       end
       resources :foods, only: [:new, :create]
+      resources :recipe_foods, only: [:new, :create,  :update,  :destroy],  except: [:show]
     end
-    resources :recipe_foods, only: %i[create update destroy]
+    # resources :recipe_foods, only: %i[create update destroy]
     resources :public_recipes, only: %i[index show]
     resources :general_shopping_list, only: [:index ,:show]
     resources :inventories, only: %i[index new create show destroy] do

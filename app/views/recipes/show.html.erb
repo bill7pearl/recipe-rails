@@ -16,7 +16,7 @@
   </div>
   <div class="recipe-info-itemBtn">
     <%= link_to "Generate Shopping List", "#", class: "select-inventory add-ingredient", data: { toggle: "modal", target: "#inventoryModal" } %>
-    <%= link_to "Add Ingredient", new_recipe_food_path(@recipe), class: "add-ingredient" %>
+   <%= link_to 'Add Ingredients', new_recipe_recipe_food_path(@recipe) class: "add-ingredient" %>
   
 </div>
 
@@ -30,18 +30,19 @@
     </tr>
   </thead>
   <tbody>
-    <% @recipe.foods.each do |recipe_food| %>
-      <tr>
-        <td><%= recipe_food.food.name %></td>
-        <td><%= recipe_food.quantity %></td>
-        <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
-        <td>
-          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "modify-btn" %>
-          <%= link_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% @recipe_foods.each do |recipe_food| %>
+    <tr>
+      <td><%= recipe_food.food.name %></td>
+      <td><%= recipe_food.quantity %></td>
+      <td><%= recipe_food.food.value * recipe_food.quantity if recipe_food.food.value %></td>
+
+      <td>
+        <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "modify-btn" %>
+        <%= link_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
 </table>
 </section>
 <div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="inventoryModalLabel" aria-hidden="true">
