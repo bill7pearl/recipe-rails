@@ -21,6 +21,9 @@
             <%= link_to "Recipe List", recipes_path, class: "nav-link" %>
           </li>
          <% if user_signed_in? %>
+         <li class="nav-item">
+            <%= link_to "Public Recipes", public_recipes_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "Add Recipe", new_recipe_path, class: "nav-link" %>
           </li>
