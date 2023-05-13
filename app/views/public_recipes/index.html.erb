@@ -5,7 +5,7 @@
     <li><%= link_to recipe.name, recipe_path(recipe) %></li>
     <div>
         <h5><%= recipe.name %></h3>
-        <p>By: <%= recipe.user.name %></p>
+        <p>By: <%= recipe.user&.name %></p>
       </div>
           <div>
             <p>Total food items: <%= @recipe_ingredients.where(recipe: recipe).count %></p>
