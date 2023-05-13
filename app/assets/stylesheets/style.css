@@ -17,7 +17,9 @@ h2 {
 
 .signPage,
 .newFood,
-.newRecipe, .new-inventory, .add-inventory {
+.newRecipe,
+.new-inventory,
+.add-inventory {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -349,7 +351,7 @@ tr:nth-child(even) {
   cursor: pointer;
 }
 
-.inventory-card{
+.inventory-card {
   padding: 5%;
   display: flex;
   margin: auto;
