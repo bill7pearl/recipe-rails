@@ -26,36 +26,35 @@ class InventoriesController < ApplicationController
     puts "Inventory destroyed: #{@inventory.destroyed?}"
     redirect_to inventories_url, notice: 'Inventory was successfully destroyed.'
   end
+
   def shopping_list
-  @inventory = Inventory.find(params[:id])
-  @recipe = Recipe.find(params[:recipe_id])
+    @inventory = Inventory.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
 
-  recipe_foods = @recipe.recipe_foods
-  inventory_foods = @inventory.inventory_foods
+    recipe_foods = @recipe.recipe_foods
+    inventory_foods = @inventory.inventory_foods
 
-  @missing_foods = []
-  @foods = []
+    @missing_foods = []
+    @foods = []
 
-  recipe_foods.each do |recipe_food|
-    food = recipe_food.food
-    inventory_food = inventory_foods.find_by(food_id: food.id)
+    recipe_foods.each do |recipe_food|
+      food = recipe_food.food
+      inventory_food = inventory_foods.find_by(food_id: food.id)
 
-    next unless inventory_food.nil? || inventory_food.quantity < recipe_food.quantity
+      next unless inventory_food.nil? || inventory_food.quantity < recipe_food.quantity
 
-    missing_quantity = inventory_food.nil? ? recipe_food.quantity : recipe_food.quantity - inventory_food.quantity
+      missing_quantity = inventory_food.nil? ? recipe_food.quantity : recipe_food.quantity - inventory_food.quantity
 
-    @missing_foods << {
-      name: food.name,
-      missing_quantity: missing_quantity,
-      cost: missing_quantity * food.price
-    }
-    @foods << food
+      @missing_foods << {
+        name: food.name,
+        missing_quantity:,
+        cost: missing_quantity * food.price
+      }
+      @foods << food
+    end
+
+    @total_cost = @missing_foods.reduce(0) { |total, food| total + food[:cost] }
   end
-
-  @total_cost = @missing_foods.reduce(0) { |total, food| total + food[:cost] }
-end
-
-
 
   private
 
