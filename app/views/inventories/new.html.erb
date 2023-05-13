@@ -1,0 +1,16 @@
+<div class="inventory-card">
+<div class="new-inventory">
+<h1>New Inventory</h1>
+
+<%= form_with(model: @inventory, local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+</div>
+
+<%= link_to 'Back', inventories_path, class: "back"%>
+</div>

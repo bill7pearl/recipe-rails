@@ -1,0 +1,15 @@
+<div class="recipe-list">
+  <% @inventories.each do |inventory| %>
+    <div class="recipe-card">
+      <div class="recipe-card-body">
+        <h3>
+          <%= link_to inventory.name, inventory_path(inventory) %>
+          <% if current_user == inventory.user %>
+            <%= button_to 'Delete', inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
+          <% end %>
+        </h3>
+        <p class="recipe-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet mauris vulputate, tristique magna non, tempor dui. Proin auctor gravida ipsum, eu tempor purus convallis eget. Fusce eu arcu sit amet ante aliquet porta. Sed et scelerisque arcu. Nulla libero risus, faucibus eu congue vel, suscipit consequat mauris.</p>
+      </div>
+    </div>
+  <% end %>
+</div>

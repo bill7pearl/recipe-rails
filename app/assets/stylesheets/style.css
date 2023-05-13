@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.signPage,
+.newFood,
+.newRecipe,
+.new-inventory,
+.add-inventory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding: 3%;
+  margin: auto;
+  margin-top: 5%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+.field,
+.fieldInput {
+  margin-bottom: 20px;
+}
+
+.fieldInput input {
+  font-size: 1.3rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.publicPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.recipe-name {
+  font-size: large;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #5fa0e6;
+}
+
+.publicPage h1 {
+  margin: auto;
+  padding: 5%;
+}
+
+.buttons {
+  padding: 2%;
+}
+
+.btn {
+  color: #f1f1f1;
+  background-color: #7dc0f7;
+  border-color: #dae0e7;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px;
+  text-decoration: none;
+  align-self: flex-end;
+  margin: 5% 0;
+}
+
+.buttons .btn {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  text-decoration: none;
+}
+
+#error_msg {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.foodList {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 10% auto;
+}
+
+th,
+td {
+  border: 1px solid #acacac;
+  text-align: center;
+  padding: 8px;
+}
+
+th,
+tr:nth-child(even) {
+  background-color: #e4e8ec;
+  color: rgb(26, 25, 25);
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  text-decoration: none;
+}
+
+/***********************************************************   */
+.detail-container,
+.recipe-info {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  gap: 2rem;
+}
+
+.detail-container h1 {
+  margin: auto;
+}
+
+.desc p {
+  padding: 2% 0;
+}
+
+.recipe-info-item1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-info-item1 p {
+  font-weight: 500;
+}
+
+.recipe-info-itemBtn {
+  display: flex;
+  gap: 5rem;
+}
+
+.shopping-list-btn,
+.add-ingredient {
+  padding: 1%;
+  border: 3px solid rgb(46, 43, 43);
+  text-decoration: none;
+  font-weight: 500;
+  color: #223850;
+}
+
+.shopping-list-btn:hover,
+.add-ingredient:hover {
+  color: #557e99;
+  text-shadow: 0 0 10px #fff;
+}
+
+.recipe-list {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 5% 10%;
+}
+
+.recipe-card {
+  width: 100%;
+  padding: 3%;
+  margin: 5%;
+  border: 2px solid rgb(56, 54, 54);
+}
+
+.recipe-card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+}
+
+.recipe-card-body h3 a {
+  color: #3d362f;
+  padding-bottom: 2%;
+}
+
+.recipe-description {
+  font-weight: 500;
+}
+
+.delete-btn {
+  padding-top: 2%;
+  color: #5fa0e6;
+}
+
+/**************************************************   */
+.toggle-btn {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  background-color: #6d3405;
+  border-radius: 34px;
+  transition: background-color 0.3s ease-in-out;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-btn:active::before {
+  transform: translateX(26px);
+}
+
+.toggle-btn.dark::before {
+  transform: translateX(26px);
+}
+
+.toggle-btn.dark {
+  background-color: #613b10;
+}
+
+.toggle-btn.light::before {
+  transform: translateX(0);
+}
+
+.toggle-btn.light {
+  background-color: #ddd;
+}
+
+.toggle-btn.hide-text {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  text-indent: -9999px;
+}
+
+.modal {
+  display: none;
+
+  /* Hidden by default */
+  position: fixed;
+
+  /* Stay in place */
+  z-index: 1;
+
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  /* Full width */
+  height: 100%;
+
+  /* Full height */
+  overflow: auto;
+
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+
+  /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.inventory-card {
+  padding: 5%;
+  display: flex;
+  margin: auto;
+  gap: 4rem;
+}
+
+.back {
+  height: 35px;
+  background-color: #007bff;
+  color: white;
+  padding: 2%;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back:hover {
+  background-color: #0069d9;
+}

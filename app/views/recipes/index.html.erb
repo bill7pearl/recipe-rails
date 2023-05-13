@@ -1,0 +1,15 @@
+<div class="recipe-list">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe-card">
+      <div class="recipe-card-body">
+        <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+        <p class="recipe-description"><%= recipe.description %></p>   
+      </div>
+      <div class="recipe-actions">
+        <% if recipe.user == current_user %>
+          <%= button_to 'REMOVE', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

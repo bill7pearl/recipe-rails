@@ -1,0 +1,103 @@
+<section class="detail-container">
+
+<h1 class="recipe-name"><%= @recipe.name %></h1>
+<div class="recipe-info">
+  <div class="recipe-info-item1">
+    <div class="desc">
+        <p>Preparation Time: <%= @recipe.preparation %></p>
+        <p>Cooking Time: <%= @recipe.cooking_time %> hours</p>
+        <p>Steps go here...</p>
+    </div>
+    <div class="toggle">
+   <%= button_to "Toggle", toggle_public_recipe_path(@recipe), method: :post, class: "toggle-btn hide-text" %>
+</div>
+
+  
+  </div>
+  <div class="recipe-info-itemBtn">
+  <%= link_to "Generate Shopping List", "#", class: "select-inventory add-ingredient", data: { toggle: "modal", target: "#inventoryModal" } %>
+   <%= link_to 'Add Ingredients', new_recipe_recipe_food_path(@recipe), class: "add-ingredient" %>
+  
+</div>
+
+<table class="recipe-table">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @recipe_foods.each do |recipe_food| %>
+    <tr>
+      <td><%= recipe_food.food.name %></td>
+      <td><%= recipe_food.quantity %></td>
+      <td><%= recipe_food.food.value * recipe_food.quantity if recipe_food.food.value %></td>
+
+      <td>
+        <%= link_to "Modify", recipe_recipe_food_path(@recipe, recipe_food), class: "modify-btn" %>
+        <%= link_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+</section>
+<div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="inventoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inventoryModalLabel">Select an Inventory</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with url: shopping_list_recipe_path, method: :get do |form| %>
+
+        <%= form.label :inventory_id, "Select an inventory" %>
+        <%= form.collection_select :inventory_id, @inventories, :id, :name, prompt: "Select an inventory" %>
+
+        <%= form.hidden_field :recipe_id, value: @recipe.id %>
+
+        <div class="modal-footer">
+          <%= form.submit "Generate", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Get the modal
+  var modal = document.getElementById('inventoryModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementsByClassName('select-inventory')[0];
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName('close')[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = 'block';
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = 'none';
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+});
+</script>

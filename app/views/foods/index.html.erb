@@ -1,0 +1,25 @@
+<section class="foodList">
+
+  <%= link_to 'Add Food', new_food_path, class: 'btn' %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.includes(:user).each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td>$<%= food.price %></td>
+          <td><%= button_to 'Delete', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

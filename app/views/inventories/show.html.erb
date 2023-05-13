@@ -1,0 +1,24 @@
+<section class="foodList">
+<h1><%= @inventory.name %></h1>
+
+<%= link_to 'Add Food', new_inventory_inventory_food_path(inventory_id: @inventory.id), class: 'btn btn-primary' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inventory.inventory_foods.each do |inventory_food| %>
+      <tr>
+        <td><%= inventory_food.food.name %></td>
+        <td><%= inventory_food.quantity %></td>
+        <td><%= button_to 'Delete', inventory_inventory_food_path(@inventory, inventory_food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

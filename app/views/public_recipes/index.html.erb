@@ -1,0 +1,17 @@
+<section class="publicPage">
+<h1>Public Recipes</h1>
+<ul class="recipes">
+  <% @recipes.each do |recipe| %>
+  <div class="recipe">
+  <div>
+    <li class="recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <p>By: <%= recipe.user&.name %></p>
+      </div>
+          <div>
+            <p>Total food items: <%= @recipe_ingredients.where(recipe: recipe).count %></p>
+            <p>Total Price: $ <%= @recipe_ingredients.where(recipe: recipe).map {|value| value.food.price * value.quantity}.sum %></p>
+          </div>
+          </div>
+  <% end %>
+</ul>
+</section>

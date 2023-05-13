@@ -1,0 +1,46 @@
+<div>
+<h1> Shopping List</h1>
+
+<div>
+<div>
+  <div>
+    <p> Amount of Food to buy: <%=@foods.length%></p>
+  </div>
+  <div>
+    <p> Total Value: <%=@total%></p>
+  </div>
+</div>
+<div>
+  <div>
+    <p> Recipe: <%=params[:recipe_id]%></p>
+  </div>
+  <div>
+    <p> Inventory: <%=params[:inventory_id]%></p>
+  </div>
+</div>
+
+
+</div>
+
+<table>
+    <thead>
+        <tr>
+        <th >Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @foods.each_with_index do |food, i|%>
+    <tr>
+      <td><%= food %></th>
+      <td><%= @quantity[i][0]  %></th>
+      <td><%= @quantity[i][0].to_i * @quantity[i][1].to_i %></th>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+
+</div> 
+</div>
