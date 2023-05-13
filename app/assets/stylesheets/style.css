@@ -74,6 +74,36 @@ input[type="submit"]:hover {
   align-items: center;
 }
 
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.recipe-name {
+  font-size: large;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #5fa0e6;
+}
+
 .publicPage h1 {
   margin: auto;
   padding: 5%;
