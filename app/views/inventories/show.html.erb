@@ -1,8 +1,7 @@
+<section class="foodList">
 <h1><%= @inventory.name %></h1>
 
 <%= link_to 'Add Food', new_inventory_inventory_food_path(inventory_id: @inventory.id), class: 'btn btn-primary' %>
-
-<h2>Foods in Inventory</h2>
 
 <table>
   <thead>
@@ -17,8 +16,9 @@
       <tr>
         <td><%= inventory_food.food.name %></td>
         <td><%= inventory_food.quantity %></td>
-        <td><%= button_to 'Delete', inventory_inventory_food_path(@inventory, inventory_food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Delete', inventory_inventory_food_path(@inventory, inventory_food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</section>

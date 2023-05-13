@@ -3,7 +3,7 @@ class InventoryFoodsController < ApplicationController
 
   def new
     @inventory_food = @inventory.inventory_foods.build
-    @foods = Food.all
+    @foods = Food.all # assuming you have a Food model
   end
 
   def create
@@ -25,7 +25,7 @@ class InventoryFoodsController < ApplicationController
   private
 
   def set_inventory
-    @inventory = Inventory.includes(:foods).find(params[:inventory_id])
+    @inventory = Inventory.find(params[:inventory_id])
   end
 
   def inventory_food_params
