@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_143737) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_105625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_143737) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_foods_on_user_id"
+  end
+
+  create_table "group_memberships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.index ["group_id"], name: "index_group_memberships_on_group_id"
+    t.index ["user_id"], name: "index_group_memberships_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -55,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_143737) do
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "preparation"
-    t.integer "cooking_time"
+    t.time "cooking_time"
     t.text "description"
     t.boolean "public"
     t.bigint "user_id", null: false
@@ -78,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_143737) do
   end
 
   add_foreign_key "foods", "users"
+  add_foreign_key "group_memberships", "groups"
+  add_foreign_key "group_memberships", "users"
   add_foreign_key "inventories", "users"
   add_foreign_key "inventory_foods", "foods"
   add_foreign_key "inventory_foods", "inventories"
