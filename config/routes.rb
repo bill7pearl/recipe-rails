@@ -10,13 +10,14 @@ Rails.application.routes.draw do
         post 'toggle_public'
         get 'shopping_list'
       end
-      resources :foods, only: %i[new create], shallow: true
+      resources :foods, only: [:new, :create]
     end
     resources :recipe_foods, only: %i[create update destroy]
     resources :public_recipes, only: %i[index show]
     resources :general_shopping_list, only: [:index ,:show]
     resources :inventories, only: %i[index new create show destroy] do
       resources :inventory_foods, only: [:new, :create, :destroy]
+      get 'shopping_list', on: :member
     end
   end
 
